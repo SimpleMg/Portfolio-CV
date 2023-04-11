@@ -63,7 +63,6 @@
     </section>
     <!-- projets -->
     <section class="container-fluid" id="projets_ref">
-    <p id="projets_ref">projets</p>
     <?php 
         $fichier = '/projets.php';
         if (file_exists($dossier . $fichier)) {
@@ -74,8 +73,8 @@
     ?>
     </section>
     <!-- jeux -->
+    <img src="assets/img/morpion.jpg" alt="jeux" width=100%>
     <section class="container-fluid" id="jeux_ref">
-    <p id="jeux_ref">jeux</p>
     <?php 
         $fichier = '/jeux.php';
         if (file_exists($dossier . $fichier)) {
@@ -87,7 +86,6 @@
     </section>
     <!-- contact -->
     <section class="container-fluid" id="contact_ref">
-    <p id="contact_ref">contact</p>
     <?php 
         $fichier = '/contact.php';
         if (file_exists($dossier . $fichier)) {
