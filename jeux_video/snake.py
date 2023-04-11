@@ -8,7 +8,7 @@ snake_length = 1
 snake_size = 10
 snake_x = WIDTH // 2
 snake_y = HEIGHT // 2
-SNAKE_SPEED = 5
+SNAKE_SPEED = 15
 score = 0
 
 def create_apple():
@@ -34,13 +34,13 @@ while running:
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
-                dx, dy = -snake_size, 0
+                dx, dy = -SNAKE_SPEED, 0
             if event.key == pygame.K_RIGHT:
-                dx, dy = snake_size, 0
+                dx, dy = SNAKE_SPEED, 0
             if event.key == pygame.K_UP:
-                dx, dy = 0, -snake_size
+                dx, dy = 0, -SNAKE_SPEED
             if event.key == pygame.K_DOWN:
-                dx, dy = 0, snake_size
+                dx, dy = 0, SNAKE_SPEED
 
     snake_x += dx
     snake_y += dy
