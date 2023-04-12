@@ -1,12 +1,5 @@
 
-    <!-- Add Bootstrap CSS -->
 
-    <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/brython@3.11.0/brython.min.js">
-    </script>
-    <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/brython@3.11.0/brython_stdlib.js">
-    </script>
 
     <style>
         .game-container {
@@ -34,9 +27,7 @@
             background-color: black;
         }
     </style>
-</head>
 
-<body onload="brython()">
 
     <div id="gameCarousel" class="carousel slide">
         <div class="carousel-inner">
@@ -145,7 +136,7 @@ def keydown(event):
     elif key == "ArrowDown":
         dx, dy = 0, SNAKE_SPEED
         
-        
+
 def prevent_scroll(event):
     key = event.key
     if key == "ArrowLeft" or key == "ArrowRight" or key == "ArrowUp" or key == "ArrowDown":
@@ -174,8 +165,6 @@ def play_again(event):
 
 document["play_again"].bind("click", play_again)
     </script>
-</body>
-</html>
 
 
 
