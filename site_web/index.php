@@ -73,7 +73,6 @@
     ?>
     </section>
     <!-- jeux -->
-    <img src="assets/img/morpion.jpg" alt="jeux" width=100%>
     <section class="container-fluid" id="jeux_ref">
     <?php 
         $fichier = '/jeux.php';
