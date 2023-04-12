@@ -1,6 +1,4 @@
 
-
-
     <style>
         .game-container {
             display: flex;
