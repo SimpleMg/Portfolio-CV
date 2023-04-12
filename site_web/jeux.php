@@ -54,7 +54,7 @@
             <!-- Second Game Placeholder -->
             <div class="carousel-item">
                 <div class="text-center">
-                    <h2>Second Game Placeholder</h2>
+                    <h2>Jeu de La vie</h2>
                 </div>
             </div>
         </div>

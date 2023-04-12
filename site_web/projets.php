@@ -6,21 +6,21 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="10000">
-      <img src="assets/img/morpion.jpg" class="d-block w-100" alt="...">
+      <img src="assets/img/morpion.jpg" alt="jeux du morpion en python">
       <div class="carousel-caption d-none d-md-block">
         <h5>Morpion</h5>
         <p>Algorithme min max appliqué au morpion</p>
       </div>
     </div>
     <div class="carousel-item" data-bs-interval="2000">
-      <img src="assets/img/morpion.jpg" class="d-block w-100" alt="...">
+      <img src="assets/img/morpion.jpg" alt="jeu sudoku avec algortihme de resolution automatique en C">
       <div class="carousel-caption d-none d-md-block">
         <h5>sudoku</h5>
         <p>sudoku avec resolution automatique en C</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="assets/img/morpion.jpg" class="d-block w-100" alt="...">
+      <img src="assets/img/morpion.jpg" alt="jeu d'echec en python">
       <div class="carousel-caption d-none d-md-block">
         <h5>jeu echec</h5>
         <p>jeu d'echec en python</p>

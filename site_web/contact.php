@@ -1,33 +1,57 @@
 <?php 
     const ERROR_REQUIRED = 'Ce champ est requis';
     const ERROR_EMAIL = 'Veuillez entrer une adresse email valide';
+    const ERROR_LENGTH_NAME = 'Votre nom doit faire entre 2 et 50 caractères';
+    const ERROR_LENGTH_SUBJECT = 'Votre sujet doit faire entre 2 et 15 caractères';
+    const ERROR_LENGTH_MESSAGE = 'Votre message doit faire entre 2 et 500 caractères';
+    
+    function cleanInput($input) {
+        $input = trim($input);
+        $input = stripslashes($input);
+        $input = htmlspecialchars($input);
+        return $input;
+    }
+
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors = [];
-        if(empty($_POST['name'])) {
+        
+        $name = cleanInput($_POST['name']);
+        $email = cleanInput($_POST['email']);
+        $subject = cleanInput($_POST['subject']);
+        $message = cleanInput($_POST['message']);
+
+        if(empty($name)) {
             $errors['name'] = ERROR_REQUIRED;
+        } elseif(strlen($name) < 2 || strlen($name) > 50) {
+            $errors['name'] = ERROR_LENGTH_NAME;
         }
-        if(empty($_POST['email'])) {
+
+        if(empty($email)) {
             $errors['email'] = ERROR_REQUIRED;
-        } elseif(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+        } elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $errors['email'] = ERROR_EMAIL;
         }
-        if(empty($_POST['subject'])) {
+
+        if(empty($subject)) {
             $errors['subject'] = ERROR_REQUIRED;
+        } elseif(strlen($subject) < 2 || strlen($subject) > 15) {
+            $errors['subject'] = ERROR_LENGTH_SUBJECT;
         }
-        if(empty($_POST['message'])) {
+
+        if(empty($message)) {
             $errors['message'] = ERROR_REQUIRED;
+        } elseif(strlen($message) < 2 || strlen($message) > 500) {
+            $errors['message'] = ERROR_LENGTH_MESSAGE;
         }
+
         if(empty($errors)) {
             $to = 'sam@protfolio.com';
-            $subject = htmlspecialchars($_POST['subject']);
-            $message = htmlspecialchars($_POST['message']);
-            $headers = 'From: ' . $_POST['email'];
+            $headers = 'From: ' . $email;
             mail($to, $subject, $message, $headers);
             header('Location: index.php');
             exit();
         }
     }
-
 ?>
 
 <h2 class="h1-responsive font-weight-bold text-center my-4">Me contacter</h2>
