@@ -9,20 +9,24 @@
     </script>
 
     <style>
-        canvas #snake {
+        .game-container {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
             height: 100vh;
-            margin: 0;
             background-color: #f8f9fa;
         }
         canvas {
             border: 1px solid black;
             background-color: black;
         }
+        .play-again-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
         button {
-            display: none;
             margin-top: 1rem;
         }
         .carousel-control-prev-icon,
@@ -39,7 +43,9 @@
             <div class="carousel-item active">
                 <div class="text-center">
                     <canvas id="snake" width="400" height="300"></canvas>
-                    <button id="play_again" class="btn btn-primary">Play Again</button>
+                    <div class="play-again-container">
+                        <button id="play_again" class="btn btn-primary">Play Again</button>
+                    </div>
                 </div>
             </div>
             <div class="carousel-item">
@@ -138,7 +144,14 @@ def keydown(event):
         dx, dy = 0, -SNAKE_SPEED
     elif key == "ArrowDown":
         dx, dy = 0, SNAKE_SPEED
+        
+        
+def prevent_scroll(event):
+    key = event.key
+    if key == "ArrowLeft" or key == "ArrowRight" or key == "ArrowUp" or key == "ArrowDown":
+        event.preventDefault()
 
+window.addEventListener("keydown", prevent_scroll)
 window.addEventListener("keydown", keydown)
 
 game_interval = timer.set_timeout(game_loop, 100)
