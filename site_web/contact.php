@@ -1,9 +1,31 @@
 <?php 
-    if(isset($_POST['submit'])){
-        $name = $_POST['name'] ?? null;
-        $email = $_POST['email'] ?? null;
-        $subject = $_POST['subject'] ?? null;
-        $message = $_POST['message'] ?? null;
+    const ERROR_REQUIRED = 'Ce champ est requis';
+    const ERROR_EMAIL = 'Veuillez entrer une adresse email valide';
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $errors = [];
+        if(empty($_POST['name'])) {
+            $errors['name'] = ERROR_REQUIRED;
+        }
+        if(empty($_POST['email'])) {
+            $errors['email'] = ERROR_REQUIRED;
+        } elseif(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+            $errors['email'] = ERROR_EMAIL;
+        }
+        if(empty($_POST['subject'])) {
+            $errors['subject'] = ERROR_REQUIRED;
+        }
+        if(empty($_POST['message'])) {
+            $errors['message'] = ERROR_REQUIRED;
+        }
+        if(empty($errors)) {
+            $to = 'sam@protfolio.com';
+            $subject = htmlspecialchars($_POST['subject']);
+            $message = htmlspecialchars($_POST['message']);
+            $headers = 'From: ' . $_POST['email'];
+            mail($to, $subject, $message, $headers);
+            header('Location: index.php');
+            exit();
+        }
     }
 
 ?>
@@ -24,8 +46,9 @@
                 <!--Grid column-->
                 <div class="col-md-6">
                     <div class="md-form mb-0">
+                        <label for="name" class="">Votre nom</label>    
                         <input type="text" id="name" name="name" class="form-control">
-                        <label for="name" class="">Votre nom</label>
+                        <?= !empty($errors['name']) ? "<span style='color: red;'>" . $errors['name'] . "</span>" : "" ?>
                     </div>
                 </div>
                 <!--Grid column-->
@@ -33,8 +56,9 @@
                 <!--Grid column-->
                 <div class="col-md-6">
                     <div class="md-form mb-0">
+                        <label for="email" class="">Votre email</label>    
                         <input type="text" id="email" name="email" class="form-control">
-                        <label for="email" class="">Votre email</label>
+                        <?= !empty($errors['email']) ? "<span style='color: red;'>" . $errors['email'] . "</span>" : "" ?>
                     </div>
                 </div>
                 <!--Grid column-->
@@ -46,8 +70,9 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="md-form mb-0">
+                        <label for="subject" class="">Sujet</label>    
                         <input type="text" id="subject" name="subject" class="form-control">
-                        <label for="subject" class="">Sujet</label>
+                        <?= !empty($errors['subject']) ? "<span style='color: red;'>" . $errors['subject'] . "</span>" : "" ?>
                     </div>
                 </div>
             </div>
@@ -60,8 +85,9 @@
                 <div class="col-md-12">
 
                     <div class="md-form">
-                        <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
-                        <label for="message">Votre message</label>
+                        <label for="message">Votre message</label>    
+                        <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>  
+                        <?= !empty($errors['message']) ? "<span style='color: red;'>" . $errors['message'] . "</span>" : "" ?>
                     </div>
 
                 </div>
@@ -71,7 +97,7 @@
         </form>
 
         <div class="text-center text-md-left">
-            <a class="btn btn-primary">Envoyez email</a>
+            <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Envoyer</a>
         </div>
         <div class="status"></div>
     </div>
