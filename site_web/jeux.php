@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multi-Game Carousel</title>
 
     <!-- Add Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/brython@3.11.0/brython.min.js">
@@ -15,10 +7,6 @@
     <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/brython@3.11.0/brython_stdlib.js">
     </script>
-
-    <!-- Add Bootstrap JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0-alpha1/dist/js/bootstrap.min.js"></script>
 
     <style>
         canvas #snake {
@@ -37,28 +25,29 @@
             display: none;
             margin-top: 1rem;
         }
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: black;
+        }
     </style>
 </head>
 
 <body onload="brython()">
 
-    <div id="gameCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div id="gameCarousel" class="carousel slide">
         <div class="carousel-inner">
-            <!-- Snake Game -->
             <div class="carousel-item active">
                 <div class="text-center">
                     <canvas id="snake" width="400" height="300"></canvas>
                     <button id="play_again" class="btn btn-primary">Play Again</button>
                 </div>
             </div>
-            <!-- Second Game Placeholder -->
             <div class="carousel-item">
                 <div class="text-center">
                     <h2>Jeu de La vie</h2>
                 </div>
             </div>
         </div>
-        <!-- Carousel controls -->
         <button class="carousel-control-prev" type="button" data-bs-target="#gameCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
@@ -153,6 +142,24 @@ def keydown(event):
 window.addEventListener("keydown", keydown)
 
 game_interval = timer.set_timeout(game_loop, 100)
+def reset_game():
+    global snake_x, snake_y, dx, dy, running, apple_x, apple_y, snake_length, score, snake_list, game_interval
+
+    snake_x = WIDTH // 2
+    snake_y = HEIGHT // 2
+    dx, dy = 0, 0
+    snake_list = []
+    snake_length = 1
+    apple_x, apple_y = create_apple()
+    score = 0
+    running = True
+    game_interval = timer.set_timeout(game_loop, 100)
+
+def play_again(event):
+    reset_game()
+    #document["play_again"].style.display = "none"
+
+document["play_again"].bind("click", play_again)
     </script>
 </body>
 </html>
