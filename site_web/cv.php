@@ -1,14 +1,7 @@
 <style>
-  body {
-    background-color: #0d0d0d;
-    color: #32cd32;
-    font-family: "Courier New", monospace;
-  }
-
   h1,
   h2,
   h3 {
-    font-family: 'Roboto', sans-serif;
     color: #32cd32;
   }
 
@@ -58,10 +51,7 @@
             ainsi que les possibilités infinies que la programmation offre pour créer des systèmes innovants.
             Mon engagement envers ces domaines ne cesse de grandir au fil des années, et j'ai décidé de me consacrer pleinement à leur exploration.
             Je suis constamment en train d'apprendre de nouvelles choses pour rester à jour avec les dernières tendances et techniques de programmation
-            et de sécurité. J'ai également une passion pour l'échange et le partage des connaissances.
-            J'aime discuter avec d'autres professionnels et passionnés pour élargir mes horizons et partager mes découvertes.
-            Je suis convaincu que l'ouverture d'esprit et la collaboration sont les clés de la réussite dans ces domaines,
-            et je suis heureux de faire partie d'une communauté aussi dynamique et innovante.
+            et de sécurité.
           </p>
         </div>
       </div>
