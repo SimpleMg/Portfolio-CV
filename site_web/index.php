@@ -8,12 +8,68 @@
   <!-- CDN BOOSTRAP CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
   <title>Portfolio</title>
 </head>
 
-<body onload="brython()">
+<body onload="brython();">
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      brython({
+        debug: 1,
+        ipy_id: ["snake_game_script"]
+      });
+    });
+  </script>
   <style>
+    body {
+      background-color: #0d0d0d;
+      color: #32cd32;
+      font-family: "Roboto", sans-serif;
+      font-weight: 400;
+    }
+
+    .navbar {
+      background-color: #1a1a1a;
+    }
+
+    .navbar-brand,
+    .nav-link {
+      color: #32cd32 !important;
+    }
+
+    .nav-link:hover {
+      color: #50e050 !important;
+    }
+
+    .nav-link.active {
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: 3rem;
+      text-shadow: 0 0 10px #32cd32, 0 0 20px #32cd32, 0 0 30px #32cd32, 0 0 40px #32cd32, 0 0 70px #32cd32, 0 0 80px #32cd32, 0 0 100px #32cd32, 0 0 150px #32cd32;
+    }
+
+    code,
+    pre {
+      background-color: #1e1e1e;
+      color: #32cd32;
+      padding: 5px;
+      border-radius: 4px;
+    }
+
+    a {
+      color: #32cd32;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: #50e050;
+    }
+
     section {
       margin-top: 200px;
       margin-bottom: 200px;
@@ -75,18 +131,18 @@
       echo "Le fichier $fichier n'a pas été trouvé pas";
     }
     ?>
+
   </section>
   <!-- projets -->
   <section class="container-fluid" id="projets_ref">
     <?php
-    $fichier = '/cv.php';
+    $fichier = '/projets.php';
     if (file_exists($dossier . $fichier)) {
       require_once($dossier . $fichier);
     } else {
       echo "Le fichier $fichier n'a pas été trouvé pas";
     }
     ?>
-
   </section>
   <!-- jeux -->
   <section class="container-fluid" id="jeux_ref">
@@ -99,34 +155,25 @@
     }
     ?>
   </section>
-  <!-- projets -->
-  <section class="container-fluid" id="projets_ref">
+  <!-- contact -->
+  <section class="container-fluid" id="contact_ref">
     <?php
-    $fichier = '/projets.php';
+    $fichier = '/contact.php';
     if (file_exists($dossier . $fichier)) {
       require_once($dossier . $fichier);
     } else {
       echo "Le fichier $fichier n'a pas été trouvé pas";
     }
     ?>
-    <!-- contact -->
-    <section class="container-fluid" id="contact_ref">
-      <?php
-      $fichier = '/contact.php';
-      if (file_exists($dossier . $fichier)) {
-        require_once($dossier . $fichier);
-      } else {
-        echo "Le fichier $fichier n'a pas été trouvé pas";
-      }
-      ?>
-    </section>
-    <!-- CDN BOOSTRAP JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-    <!-- Brython Js -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.11.0/brython.min.js">
-    </script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.11.0/brython_stdlib.js">
-    </script>
+  </section>
+  <!-- CDN BOOSTRAP JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  <!-- Brython Js -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.11.0/brython.min.js">
+  </script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.11.0/brython_stdlib.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 </body>
 
 </html>
