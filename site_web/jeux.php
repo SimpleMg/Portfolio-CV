@@ -18,7 +18,7 @@
             width: 100%;
         }
         button {
-            margin-top: 1rem;
+            margin-top: 1.1rem;
         }
         .carousel-control-prev-icon,
         .carousel-control-next-icon {
