@@ -9,7 +9,15 @@
     <title>Page_Admin</title>
 </head>
 <body>
-
+<?php
+$dossier = __DIR__;
+$fichier = '/include/header.php';
+if (file_exists($dossier . $fichier)) {
+    require_once($dossier . $fichier);
+  } else {
+    echo "Le fichier $fichier n'a pas été trouvé pas";
+  }
+?>
 <!-- CDN BOOSTRAP JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>

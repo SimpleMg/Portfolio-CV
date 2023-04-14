@@ -73,15 +73,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 }
 
 ?>
-<?php
-$dossier = __DIR__;
-$fichier = '/include/header.php';
-if (file_exists($dossier . $fichier)) {
-    require_once($dossier . $fichier);
-  } else {
-    echo "Le fichier $fichier n'a pas été trouvé pas";
-  }
-?>
 <div class="container">
     <div class="row justify-content-center mt-5">
       <div class="col-md-6">
