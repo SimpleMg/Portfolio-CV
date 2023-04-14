@@ -36,6 +36,28 @@
     margin-bottom: 10px;
     color: #32cd32;
   }
+  .download-btn {
+  background-color: #32cd32;
+  color: white;
+  border: 2px solid #32cd32;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  padding: 12px 24px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.download-btn:hover {
+  background-color: #50e050;
+  color: black;
+  border-color: #50e050;
+  text-decoration: none;
+}
+
+.download-btn i {
+  margin-right: 8px;
+}
+
 </style>
 <div class="section pt-4 px-3 px-lg-4" id="about">
   <div class="container-narrow mx-auto">
@@ -108,3 +130,12 @@
     </div>
   </div>
 </div>
+<div class="container mt-5">
+    <div class="row">
+      <div class="col text-center">
+        <a href="assets/docs/cv.pdf" class="btn download-btn">
+          <i class="fas fa-download"></i> Télécharger mon CV en PDF
+        </a>
+      </div>
+    </div>
+  </div>
