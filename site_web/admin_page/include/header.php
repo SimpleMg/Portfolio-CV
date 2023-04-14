@@ -11,10 +11,16 @@
             <a class="nav-link" href="#">Accueil</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">Utilisateurs</a>
+                <a class="nav-link" href="#titre_ref">Titre</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">Paramètres</a>
+                <a class="nav-link" href="#video_ref">Video</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#projets_ref">Projets</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#reseaux_ref">Réseaux</a>
             </li>
         </ul>
         </div>
