@@ -9,7 +9,7 @@
             background-color: #f8f9fa;
         }
         canvas {
-            border: 1px solid black;
+            border: 10px solid white;
             background-color: black;
         }
         .play-again-container {
@@ -26,23 +26,22 @@
         }
     </style>
 
-
-    <div id="gameCarousel" class="carousel slide">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="text-center">
-                    <canvas id="snake" width="400" height="300"></canvas>
-                    <div class="play-again-container">
-                        <button id="play_again" class="btn btn-primary">Play Again</button>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="text-center">
-                    <h2>Jeu de La vie</h2>
+<div id="gameCarousel" class="carousel slide">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="text-center">
+                <canvas id="snake" width="400" height="300"></canvas>
+                <div class="play-again-container">
+                    <button id="play_again" class="btn btn-primary">Play Again</button>
                 </div>
             </div>
         </div>
+        <div class="carousel-item">
+            <div class="text-center">
+                <h2>Jeu de La vie</h2>
+            </div>
+        </div>
+    </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#gameCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
