@@ -50,6 +50,7 @@
         $errors['password'] = ERROR_REQUIRED;
       }
       if (empty($errors)) {
+        $dossier = __DIR__;
         $db = new mysqli('localhost', 'root', '', 'portfolio');
         if ($db->connect_errno) {
           echo "Failed to connect to MySQL: " . $db->connect_error;
