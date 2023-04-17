@@ -82,11 +82,25 @@
   <!-- php dossier -->
   <?php
   $dossier = __DIR__;
+  $db = new mysqli('localhost', 'root', '', 'portfolio');
+  if ($db->connect_errno) {
+    echo "Failed to connect to MySQL: " . $db->connect_error;
+    exit();
+  }
   ?>
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark fixed-top" data-bs-theme="dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Portfolio</a>
+      <a class="navbar-brand" href="#">
+        <?php
+        $query = "SELECT * FROM titre";
+        $stmt = $db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $titre = $result->fetch_assoc();
+        echo $titre['titre'];
+        ?>
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -114,10 +128,17 @@
   <!-- FIN NAVBAR -->
   <!-- Acceuil -->
   <!-- Video -->
+  <?php
+  $query = "SELECT * FROM video";
+  $stmt = $db->prepare($query);
+  $stmt->execute();
+  $result = $stmt->get_result();
+  $titre = $result->fetch_assoc();
+  ?>
   <section id="acceuil_ref">
     <div class="video-wrapper">
       <video width="100%" playsinline autoplay muted loop>
-        <source src="assets/video/Blue Black Futuristic Technology Video.mp4">Votre navigateur ne supporte pas le player vidéo
+        <source src="<?= $titre['video'] ?>">Votre navigateur ne supporte pas le player vidéo
       </video>
     </div>
   </section>
