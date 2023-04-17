@@ -33,34 +33,36 @@
 </head>
 
 <body>
+  <?php
+  $db = new mysqli('localhost', 'root', '', 'portfolio');
+  if ($db->connect_errno) {
+    echo "Failed to connect to MySQL: " . $db->connect_error;
+    exit();
+  }
+  ?>
+  <?php
+  $query = "SELECT * FROM projets";
+  $stmt = $db->prepare($query);
+  $stmt->execute();
+  $result = $stmt->get_result();
+  $projects = $result->fetch_all(MYSQLI_ASSOC);
+  ?>
   <div id="carouselExampleCaptions" class="carousel slide">
     <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <?php foreach ($projects as $index => $project) : ?>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?= $index ?>" <?= $index == 0 ? 'class="active" aria-current="true"' : '' ?> aria-label="Slide <?= $index + 1 ?>"></button>
+      <?php endforeach; ?>
     </div>
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="assets/img/morpion.jpg" class="d-block mx-auto" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>morpion algo minmax</h5>
-          <p>morpion coder en python avec l'algorithme min max</p>
+      <?php foreach ($projects as $index => $project) : ?>
+        <div class="carousel-item <?= $index == 0 ? 'active' : '' ?>">
+          <img src="<?= $project["img"] ?>" class="d-block mx-auto" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5><?= $project["titre"] ?></h5>
+            <p><?= $project["description"] ?></p>
+          </div>
         </div>
-      </div>
-      <div class="carousel-item">
-        <img src="assets/img/morpion.jpg" class="d-block mx-auto" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>morpion algo minmax</h5>
-          <p>morpion coder en python avec l'algorithme min max</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="assets/img/morpion.jpg" class="d-block mx-auto" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>morpion algo minmax</h5>
-          <p>morpion coder en python avec l'algorithme min max</p>
-        </div>
-      </div>
+      <?php endforeach; ?>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
