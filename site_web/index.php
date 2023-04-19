@@ -211,7 +211,6 @@
 <footer class="bg-dark text-center text-lg-start">
   <div class="container p-4">
     <div class="row">
-      <!-- Colonne 1 -->
       <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
         <h5 class="text-uppercase">À propos</h5>
         <p>
@@ -219,7 +218,6 @@
         </p>
       </div>
 
-      <!-- Colonne 2 -->
       <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
         <h5 class="text-uppercase">Liens utiles</h5>
         <ul class="list-unstyled mb-0">
@@ -238,7 +236,6 @@
         </ul>
       </div>
 
-      <!-- Colonne 3 -->
       <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
         <h5 class="text-uppercase">Réseaux sociaux</h5>
         <ul class="list-unstyled mb-0">
