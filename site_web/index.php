@@ -207,5 +207,56 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 </body>
+<!-- Footer -->
+<footer class="bg-dark text-center text-lg-start">
+  <div class="container p-4">
+    <div class="row">
+      <!-- Colonne 1 -->
+      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+        <h5 class="text-uppercase">À propos</h5>
+        <p>
+          Pour me contacter n'hésitez pas à me laisser un message sur le formulaire de contact.
+        </p>
+      </div>
+
+      <!-- Colonne 2 -->
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Liens utiles</h5>
+        <ul class="list-unstyled mb-0">
+          <li>
+            <a href="#cv_ref" class="text-light">CV</a>
+          </li>
+          <li>
+            <a href="#projets_ref" class="text-light">Projets</a>
+          </li>
+          <li>
+            <a href="#jeux_ref" class="text-light">Jeux</a>
+          </li>
+          <li>
+            <a href="#contact_ref" class="text-light">Contact</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Colonne 3 -->
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Réseaux sociaux</h5>
+        <ul class="list-unstyled mb-0">
+          <li>
+            <a href="" class="text-light" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          </li>
+          <li>
+            <a href="" class="text-light" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    &copy; <?= date('Y') ?> Sam Levy - Tous droits réservés.
+  </div>
+</footer>
+<!-- Fin Footer -->
 
 </html>
