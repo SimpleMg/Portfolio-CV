@@ -243,7 +243,7 @@
             <a href="" class="text-light" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
           </li>
           <li>
-            <a href="" class="text-light" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://github.com/SimpleMg" class="text-light" target="_blank"><i class="fab fa-github"></i> GitHub</a>
           </li>
         </ul>
       </div>
