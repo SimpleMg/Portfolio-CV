@@ -5,13 +5,6 @@ const ERROR_LENGTH_NAME = 'Votre nom doit faire entre 2 et 50 caractères';
 const ERROR_LENGTH_SUBJECT = 'Votre sujet doit faire entre 2 et 15 caractères';
 const ERROR_LENGTH_MESSAGE = 'Votre message doit faire entre 2 et 500 caractères';
 
-function cleanInput($input)
-{
-    $input = trim($input);
-    $input = stripslashes($input);
-    $input = htmlspecialchars($input);
-    return $input;
-}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
