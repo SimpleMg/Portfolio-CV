@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- CDN BOOSTRAP CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-  <link rel="stylesheet" href="assets/css/style.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
   <title>Portfolio</title>
@@ -78,6 +77,11 @@
     section:not(:first-child) {
       margin-top: 0px;
     }
+    @media (max-width: 767px) {
+      #jeux_ref {
+        display: none;
+      }
+    }
   </style>
   <!-- php dossier -->
   <?php
@@ -86,6 +90,13 @@
   if ($db->connect_errno) {
     echo "Failed to connect to MySQL: " . $db->connect_error;
     exit();
+  }
+  function cleanInput($input)
+  {
+      $input = trim($input);
+      $input = stripslashes($input);
+      $input = htmlspecialchars($input);
+      return $input;
   }
   ?>
   <!-- NAVBAR -->
