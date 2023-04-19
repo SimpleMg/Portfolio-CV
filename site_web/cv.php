@@ -1,3 +1,23 @@
+<?php
+  $db = new mysqli('localhost', 'root', '', 'portfolio');
+  if ($db->connect_errno) {
+      echo "Failed to connect to MySQL: " . $db->connect_error;
+      exit();
+  }
+
+  $query = "SELECT description, img_profile FROM cv";
+  $result = $db->query($query);
+
+  if ($result) {
+    $row = $result->fetch_assoc();
+    $description = $row['description'];
+    $img_profile = $row['img_profile'];
+  }
+  $query2 = "SELECT titre, img FROM competences";
+  $result2 = $db->query($query2);
+  
+
+?>
 <style>
   h1,
   h2,
@@ -66,20 +86,12 @@
         <div class="px-3">
           <br>
           <br>
-          <p>
-            Je m'appelle Sam et j'ai développé un grand intérêt pour la cyber sécurité et la programmation.
-            Mon envie de comprendre le fonctionnement des ordinateurs m'a conduit à explorer les différents
-            aspects de ces domaines fascinants. J'adore la complexité des problèmes à résoudre en matière de sécurité informatique,
-            ainsi que les possibilités infinies que la programmation offre pour créer des systèmes innovants.
-            Mon engagement envers ces domaines ne cesse de grandir au fil des années, et j'ai décidé de me consacrer pleinement à leur exploration.
-            Je suis constamment en train d'apprendre de nouvelles choses pour rester à jour avec les dernières tendances et techniques de programmation
-            et de sécurité.
-          </p>
+            <p><?= $description; ?></p>
         </div>
       </div>
       <div class="col-md-5 offset-md-1" data-aos="fade-left" data-aos-delay="100">
         <div class="px-3">
-          <img class="avatar img-fluid mt-2" src="assets/img/sam_l.jpg" width="400" height="400" alt="Sam Levy" />
+          <img class="avatar img-fluid mt-2" src="<?= $img_profile; ?>" width="400" height="400" alt="Sam Levy" />
         </div>
       </div>
     </div>
@@ -91,42 +103,23 @@
       <h2 class="marker marker-center">Mes compétences</h2>
     </div>
     <div class="row">
-      <div class="col-md-4">
-        <div class="skill-block text-center">
-          <i class="fab fa-html5 skill-icon"></i>
-          <h3>HTML</h3>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="skill-block text-center">
-          <i class="fab fa-bootstrap skill-icon"></i>
-          <h3>Bootstrap</h3>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="skill-block text-center">
-          <i class="fab fa-python skill-icon"></i>
-          <h3>Python</h3>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="skill-block text-center">
-          <i class="fab fa-php skill-icon"></i>
-          <h3>PHP</h3>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="skill-block text-center">
-          <i class="fab fa-cuttlefish skill-icon"></i>
-          <h3>Langage C</h3>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="skill-block text-center">
-          <i class="fas fa-database skill-icon"></i>
-          <h3>SQL</h3>
-        </div>
-      </div>
+      <?php
+        if ($result2) {
+          $rows = $result2->fetch_all(MYSQLI_ASSOC);
+          foreach ($rows as $row2) {
+            $titre = $row2['titre'];
+            $img = $row2['img'];
+            ?>
+              <div class="col-md-4">
+                <div class="skill-block text-center">
+                  <i class="<?= $row2["img"] ?>"></i>
+                  <h3> <?= $titre ?></h3>
+                </div>
+              </div>
+            <?php
+          }
+        }
+      ?>
     </div>
   </div>
 </div>
