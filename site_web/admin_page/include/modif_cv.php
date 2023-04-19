@@ -27,13 +27,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 <h1>Modifier le cv</h1>
 <form action="" method="POST">
+<label for="description">Description</label>
     <div class="mb-3">
-        <label for="description">Description</label>
-        <textarea name="description" id="description" cols="150" rows="10"><?= cleanInput($project['description']) ?></textarea>
+        <textarea name="description" id="description" cols="100" rows="10"><?= cleanInput($project['description']) ?></textarea>
     </div>
     <div class="mb-3">
         <label for="img">Image Profile</label>
-        <input type="text" name="img_profile" id="img_profile" value="<?= $project['img_profile'] ?>">
+        <input type="text" name="img_profile" id="img_profile" value="<?= cleanInput($project['img_profile']) ?>">
     </div>
     <button type="submit" name="submit" class="btn btn-primary w-10">Modifier Projet</button>
 </form>
